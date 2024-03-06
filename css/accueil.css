@@ -1,0 +1,172 @@
+
+.accueil-intro { /*accueil-intro est une partie (contenant) composée de 2 boites : 1texte (div) et 1photo(img). L'objectif ici est d'avoir la boite texte sur la gauche et la boite image sur la droite. La taille du contenant dépend du nombre de lignes, du padding et des margin*/
+  display: flex; /*On déclare les boites comme "flexibles" c'est à dire qu'elle pourront se placer cote à cote en ligne ou en colonne avec flexibilité, contrairement à l'une sur l'autre classiquement*/
+  flex-direction: row; /*On choisi donc en ligne, autre possibilité : flex-direction: column; qui serait donc en colonne*/
+  /*align-items: flex-start; /*align-items permet d'aligner verticalement les 2 boites dans le contenant. Ici on place les boites le plus haut à gauche possible dans le contenant (comme un texte par defaut dans une zone de texte). Arrivé ici les 2 boites sont donc en ligne et le texte est placé en haut à gauche mais la photo ne bouge pas car la hauteur du contenant est défini par la hauteur de l'image*/
+  max-width: 1020px; /*Ici on régle la largeur du contenant à xx% ou xxpx de la page visible. Le contenant par défaut va de tout à gauche de l'écran à tout à droite. Ici il est donc moins large*/
+  margin: auto; /*Maintenant on veut centrer le contenant et margin:auto permet ça*/
+  justify-content: space-between; /*Ca permet de placer la ligne des 2 boites horizontalement dans le contenant.*/
+  gap: 50px;
+  padding-right: 50px;
+  padding-bottom: 60px;
+}
+
+.bloc-texte {
+    max-width : 450px;
+}
+
+.accueil-intro h1 {
+    margin-bottom: 30px;
+}
+
+.accueil-intro p {
+    text-align: justify;
+    margin-bottom: 50px;
+}
+
+.img-container img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.img-container {
+    position: relative;
+    padding: 0px 30px 30px 30px;
+}
+
+.carre-style {
+    display: flex;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-right :2px #8e86b5 solid;
+    border-bottom :2px #8e86b5 solid;
+    /*top: 355px;*/
+    right: 0px;
+    bottom: 0px;
+    /*left: 349px;*/
+}
+
+.accueil-photos {
+    background-color: white;
+    padding: 50px 80px 30px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items : center;
+}
+
+.accueil-photos h2 {
+    color: #242424;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.accueil-photos div {
+    display: flex;
+    flex-direction: row;
+    justify-content : center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.accueil-photos-ligne img {
+    width: calc((100% - 30px) / 3);
+    object-fit: cover;
+}
+
+.accueil-formulaire h3 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    color: white;
+    margin: auto;
+    font-size : 1em;
+}
+
+.form-nom-email {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.form-colonne {
+    display: flex;
+    flex-direction : column;
+    flex: 1;
+}
+
+label {
+    margin-bottom : 10px;
+}
+
+input, textarea {
+    padding: 15px;
+    border-radius: 3px;
+    border: none;
+    font-size: 1em;
+    font-family:"Manrope", sans-serif;
+}
+
+input[type="submit"] {
+    width: 200px;
+    margin: auto;
+    margin-top: 30px;
+}
+
+@media all and (max-width: 996px) {
+    .accueil-intro {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        padding: 20px 20px 20px 20px;
+    }
+    .accueil-intro div {
+        order:2;
+        text-align: center;
+    }
+    .accueil-intro p {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .accueil-intro .img-container {
+        order:1;
+        margin-top: 10px;
+    }
+
+    .img-container img {
+        object-fit: cover;
+        max-width: 100%;
+    }
+
+    .accueil-photos {
+        text-align: center;
+        padding: 20px 20px 20px 20px;
+    }
+
+    .accueil-photos div {
+        flex-direction: column;
+
+    }
+
+    .accueil-photos-ligne img {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .accueil-formulaire h2 {
+        text-align: center;
+    }
+
+    .form-nom-email {
+        flex-direction: column;
+    }
+}
